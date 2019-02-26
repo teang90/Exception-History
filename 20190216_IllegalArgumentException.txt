@@ -1,0 +1,19 @@
+2월 16, 2019 6:07:22 오후 org.apache.catalina.core.StandardWrapperValve invoke
+심각: Servlet.service() for servlet [appServlet] in context with path [/controller] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for delete_AnswerOfBoard
+### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for delete_AnswerOfBoard] with root cause
+java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for delete_AnswerOfBoard
+
+     (1) mapper id가 틀린 경우
+
+     (2) Parameter와 bean의 field명이  틀린 경우
+
+     (3) sql.xml에서 정의된 namespace와 DAO에서 호출하는 namespace가 다를 경우
+
+     (4) mapper가 정의가 되어 있지 않거나 Spelling이 틀린 경우
+
+     (5) mapper에 정의된 namespace 명칭이 같은 Application 내에 중복 될 경우
+
+<발생지점: mapper에서 delete의 속성을 parameterType이 아니라 parameterMap을 사용했음...>
+
+=======================================================================

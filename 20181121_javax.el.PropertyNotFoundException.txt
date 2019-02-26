@@ -1,0 +1,89 @@
+﻿중점적으로 봐야할 문구
+javax.el.PropertyNotFoundException: Property [Cpage] not found on type [com.ict.mybatis.Page]
+ =>>> 프로퍼티 이름(변수명, 대문자, 소문자, 오타 등) 혹은 
+          프로퍼티 설정이 잘못 되어있다는 에러입니다.
+
+발생지점: 페이징 과정에서 cPage 대소문자 오류
+
+
+
+HTTP Status 500 – Internal Server Error
+Type Exception Report
+
+Message An exception occurred processing [WEB-INF/views/list.jsp] at line [44]
+
+Description The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+Exception
+
+org.apache.jasper.JasperException: An exception occurred processing [WEB-INF/views/list.jsp] at line [44]
+
+41: 	
+42: 	<!-- 페이지 버튼 삽입 -->
+43: 	<c:forEach var="k" begin="${page.beginPage}" end="${page.endPage}" step="1">	
+44: 		<c:if test="${k = page.Cpage}">
+45: 		${k}
+46: 		</c:if>
+47: 		<c:if test="${k != k.Cpage}">
+
+
+Stacktrace:
+	org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:593)
+	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:482)
+	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:168)
+	org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+Root Cause
+
+javax.el.PropertyNotFoundException: Property [Cpage] not found on type [com.ict.mybatis.Page]
+	javax.el.BeanELResolver$BeanProperties.get(BeanELResolver.java:260)
+	javax.el.BeanELResolver$BeanProperties.access$300(BeanELResolver.java:212)
+	javax.el.BeanELResolver.property(BeanELResolver.java:347)
+	javax.el.BeanELResolver.getValue(BeanELResolver.java:92)
+	org.apache.jasper.el.JasperELResolver.getValue(JasperELResolver.java:113)
+	org.apache.el.parser.AstValue.getValue(AstValue.java:169)
+	org.apache.el.parser.AstAssign.getValue(AstAssign.java:33)
+	org.apache.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:190)
+	org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate(PageContextImpl.java:702)
+	org.apache.jsp.WEB_002dINF.views.list_jsp._jspx_meth_c_005fif_005f0(list_jsp.java:333)
+	org.apache.jsp.WEB_002dINF.views.list_jsp._jspx_meth_c_005fforEach_005f1(list_jsp.java:290)
+	org.apache.jsp.WEB_002dINF.views.list_jsp._jspService(list_jsp.java:170)
+	org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:444)
+	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:168)
+	org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+Note The full stack trace of the root cause is available in the server logs.
+
+Apache Tomcat/9.0.10
