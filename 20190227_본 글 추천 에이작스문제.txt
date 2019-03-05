@@ -1,0 +1,38 @@
+jquery-3.3.1.js:9488 [Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. 
+
+-> 동기식으로 처리해서 발생하는 문제( >> async:false)
+-> 어떤분의 의견에 따르면 동기식 대신 처리가 완료될때까지 로딩표시를 띄워주는 식으로 처리해야한다고 제안함...
+
+For more help, check https://xhr.spec.whatwg.org/.
+send @ jquery-3.3.1.js:9488
+ajax @ jquery-3.3.1.js:9206
+getBoard_recommendation_standard @ oneBoard.do?board_pk=16&cPage=1:356
+boardRecommendUp @ oneBoard.do?board_pk=16&cPage=1:381
+onclick @ oneBoard.do?board_pk=16&cPage=1:589
+
+
+해당부분에서 async를 주석처리했음에도 
+[Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. 
+
+For more help, check https://xhr.spec.whatwg.org/.
+send @ jquery-3.3.1.js:9488
+ajax @ jquery-3.3.1.js:9206
+getBoard_recommendation_standard @ oneBoard.do?board_pk=14&cPage=1:357
+boardRecommendUp @ oneBoard.do?board_pk=14&cPage=1:382
+onclick @ oneBoard.do?board_pk=14&cPage=1:590
+
+문제가... 뜸...
+위에 표시된 Xhr.open메소드로 가보니
+
+Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.
+
+위의 문구가 뜸
+
+
+문제는 비동기식으로 하면 이전 추천객체 조회 메소드를 거치지 않고 
+처리하기 때문에 이미 이전에 했던 추천(반대) 이벤트를 제어할 방법을
+아직 생각하지 못했다... 함수 순서나 함수 유형 등이나 좀 더 고민 해야할듯... 이전까지는 일단 async:false+완료 후 새로고침으로.... ㅠㅠ
+
+https://xhr.spec.whatwg.org/
+
+ ↑여기도 털어보자
